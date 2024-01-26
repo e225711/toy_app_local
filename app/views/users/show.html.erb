@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
+
+<% if @user.microposts.any? %>
+  <h2>User's Microposts:</h2>
+  <ul>
+    <% @user.microposts.each do |micropost| %>
+      <li><%= micropost.content %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This user has no microposts.</p>
+<% end %>
